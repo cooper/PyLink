@@ -111,37 +111,39 @@ def jupe(irc, source, args):
 
 @utils.add_cmd
 def kick(irc, source, args):
-    """<source> <channel> <user> [<reason>]
+    """[<source>] <channel> <user> [<reason>]
 
-    Admin only. Kicks <user> from <channel> via <source>, where <source> is either the nick of a PyLink client or the SID of a PyLink server."""
+    Admin only. Kicks <user> from <channel> via <source>, where <source> is either the nick of a PyLink client or the SID of a PyLink server. If <source> is not given, it defaults to the main PyLink client."""
     utils.checkAuthenticated(irc, source, allowOper=False)
     try:
         sourcenick = args[0]
         channel = args[1]
         target = args[2]
         reason = ' '.join(args[3:])
-    except IndexError:
-        irc.reply("Error: Not enough arguments. Needs 3-4: source nick, channel, target, reason (optional).")
-        return
 
-    # Convert the source and target nicks to UIDs.
-    sender = irc.nickToUid(sourcenick) or sourcenick
-    targetu = irc.nickToUid(target)
+        # Try to convert the source nick to a UID, but fall back to the original text if that fails.
+        sender = irc.nickToUid(sourcenick) or sourcenick
+
+        if (not irc.isInternalClient(sender)) and (not irc.isInternalServer(sender)):
+            # The source nick / SID isn't one a PyLink client/server. Assume that it's
+            # the channel instead.
+            raise IndexError
+    except IndexError:
+        try:
+            sender = irc.pseudoclient.uid
+            channel = args[0]
+            target = args[1]
+            reason = ' '.join(args[2:])
+        except IndexError:
+            irc.reply("Error: Not enough arguments. Needs 2-4: source nick (optional), channel, target, reason (optional).")
+            return
+
 
     if channel not in irc.channels:  # KICK only works on channels that exist.
         irc.reply("Error: Unknown channel %r." % channel)
         return
 
-    if (not irc.isInternalClient(sender)) and \
-            (not irc.isInternalServer(sender)):
-        # Whatever we were told to send the kick from wasn't valid; try to be
-        # somewhat user friendly in the error message
-        irc.reply("Error: No such PyLink client '%s'. The first argument to "
-                  "KICK should be the name of a PyLink client (e.g. '%s'; see "
-                  "'help kick' for details." % (sourcenick,
-                  irc.pseudoclient.nick))
-        return
-    elif not targetu:
+    if not targetu:
         # Whatever we were told to kick doesn't exist!
         irc.reply("Error: No such target nick '%s'." % target)
         return
