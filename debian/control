@@ -1,0 +1,50 @@
+Source: pylink
+Section: net
+Priority: optional
+Maintainer: James Lu <bitflip3@gmail.com>
+Build-Depends: debhelper (>= 9),
+               dh-python,
+               python3,
+               python3-setuptools,
+               python3-pypandoc,
+               doxygen
+Standards-Version: 3.9.8
+Homepage: https://github.com/GLolol/PyLink/
+X-Python3-Version: >= 3.4
+Vcs-Git: https://github.com/GLolol/PyLink/
+Vcs-Browser: https://github.com/GLolol/PyLink/tree/debian
+
+Package: pylink
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         python3-ircmatch,
+         python3-yaml
+Recommends: python3-expiringdict
+Suggests: pylink-doc
+Description: Multi-network IRC Services & server-side relayer
+ PyLink is an extensible, plugin-based IRC services framework written in
+ Python. It aims to be:
+ .
+ 1) a replacement for the now-defunct Janus.
+ .
+ 2) a versatile framework and gateway to IRC.
+
+Package: pylink-doc
+Section: doc
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         python3-ircmatch,
+         python3-yaml
+Recommends: python3-expiringdict
+Description: Multi-network IRC Services & server-side relayer (extra docs)
+ PyLink is an extensible, plugin-based IRC services framework written in
+ Python. It aims to be:
+ .
+ 1) a replacement for the now-defunct Janus.
+ .
+ 2) a versatile framework and gateway to IRC.
+ .
+ This package provides a Doxygen-generated API reference for PyLink IRC
+ Services.

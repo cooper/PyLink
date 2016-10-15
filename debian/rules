@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 1
+export PYBUILD_NAME=pylink
+export PYBUILD_DESTDIR_python3=debian/pylink/
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+# Install Doxygen docs in the pylink-doc package, to /usr/share/doc/pylink/
+DOCDIR=debian/pylink-doc/usr/share/doc/pylink/
+
+override_dh_auto_install:
+	dh_auto_install
+	mkdir -p $(DOCDIR)
+	cd docs/technical/ && doxygen doxygen.conf
+	mv docs/technical/html $(DOCDIR)
