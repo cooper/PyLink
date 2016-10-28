@@ -2,6 +2,7 @@
 export DH_VERBOSE = 1
 export PYBUILD_NAME=pylink
 export PYBUILD_DESTDIR_python3=debian/pylink/
+export PYBUILD_DISABLE=test
 
 %:
 	dh $@ --with python3 --buildsystem=pybuild
