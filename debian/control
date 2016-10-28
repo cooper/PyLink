@@ -6,7 +6,6 @@ Build-Depends: debhelper (>= 9),
                dh-python,
                python3,
                python3-setuptools,
-               python3-pypandoc,
                doxygen
 Standards-Version: 3.9.8
 Homepage: https://github.com/GLolol/PyLink/

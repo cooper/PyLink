@@ -1,3 +1,10 @@
+pylink (1.0.2-0utopia1~deb8u1) jessie; urgency=medium
+
+  * Build for Debian Jessie.
+  * Remove python3-pypandoc from build-deps; it is not available in Jessie.
+
+ -- James Lu <bitflip3@gmail.com>  Thu, 27 Oct 2016 19:09:26 -0700
+
 pylink (1.0.2-0utopia1) unstable; urgency=medium
 
   * Initial Utopia Repository release.
