@@ -1,3 +1,9 @@
+pylink (1.0.2-0utopia3~deb8u1) jessie; urgency=medium
+
+  * Rebuild for Debian Jessie.
+
+ -- James Lu <bitflip3@gmail.com>  Sat, 29 Oct 2016 11:41:01 -0700
+
 pylink (1.0.2-0utopia3) unstable; urgency=medium
 
   * Drop extraneous dependencies from pylink-doc.
