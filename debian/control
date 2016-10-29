@@ -33,11 +33,7 @@ Description: Multi-network IRC Services & server-side relayer
 Package: pylink-doc
 Section: doc
 Architecture: all
-Depends: ${python3:Depends},
-         ${misc:Depends},
-         python3-ircmatch,
-         python3-yaml
-Recommends: python3-expiringdict
+Depends: ${misc:Depends},
 Description: Multi-network IRC Services & server-side relayer (extra docs)
  PyLink is an extensible, plugin-based IRC services framework written in
  Python. It aims to be:

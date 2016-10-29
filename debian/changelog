@@ -1,3 +1,9 @@
+pylink (1.0.2-0utopia3) unstable; urgency=medium
+
+  * Drop extraneous dependencies from pylink-doc.
+
+ -- James Lu <bitflip3@gmail.com>  Sat, 29 Oct 2016 11:29:03 -0700
+
 pylink (1.0.2-0utopia2) unstable; urgency=medium
 
   * Explicitly disable tests to avoid runtime dependencies being required for build.
