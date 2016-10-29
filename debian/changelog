@@ -1,6 +1,7 @@
 pylink (1.0.2-0utopia2ppa1) xenial; urgency=medium
 
   * Remove python3-pypandoc build-dep: it's not available in trusty and xenial.
+  * Drop extraneous dependencies from pylink-doc.
 
  -- James Lu <bitflip3@gmail.com>  Sat, 29 Oct 2016 10:15:11 -0700
 
