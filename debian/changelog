@@ -1,3 +1,9 @@
+pylink (1.0.3-0utopia1ppa1) xenial; urgency=medium
+
+  * New stable release.
+
+ -- James Lu <bitflip3@gmail.com>  Sat, 05 Nov 2016 21:44:44 -0700
+
 pylink (1.0.2-0utopia2ppa1) xenial; urgency=medium
 
   * Remove python3-pypandoc build-dep: it's not available in trusty and xenial.
