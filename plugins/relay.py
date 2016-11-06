@@ -252,7 +252,10 @@ def spawnRelayServer(irc, remoteirc):
     try:
         # ENDBURST is delayed by 3 secs on supported IRCds to prevent
         # triggering join-flood protection and the like.
-        sid = irc.proto.spawnServer('%s.relay' % remoteirc.name,
+        suffix = conf.conf.get('relay', {}).get('server_suffix', 'relay')
+        # Strip any leading or trailing .'s
+        suffix = suffix.strip('.')
+        sid = irc.proto.spawnServer('%s.%s' % (remoteirc.name, suffix),
                                     desc="PyLink Relay network - %s" %
                                     (remoteirc.serverdata.get('netname')\
                                     or remoteirc.name), endburst_delay=3)
@@ -1678,7 +1681,7 @@ def link(irc, source, args):
 
         our_ts = irc.channels[localchan].ts
         their_ts = world.networkobjects[remotenet].channels[channel].ts
-        if our_ts < their_ts:
+        if (our_ts < their_ts) and irc.protoname != 'clientbot':
             log.debug('(%s) relay: Blocking link request %s%s -> %s%s due to bad TS (%s < %s)', irc.name,
                       irc.name, localchan, remotenet, channel, our_ts, their_ts)
             irc.reply("Error: the channel creation date (TS) on %s is lower than the target "
