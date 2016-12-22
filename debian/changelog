@@ -1,3 +1,10 @@
+pylink (1.0.4-0utopia1) unstable; urgency=medium
+
+  * PyLink 1.0.4: the "Bonfire" release.
+  * debian/control: update Vcs-* fields
+
+ -- James Lu <bitflip3@gmail.com>  Wed, 21 Dec 2016 18:18:36 -0800
+
 pylink (1.0.3-0utopia1) unstable; urgency=medium
 
   * New stable release.
