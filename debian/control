@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9),
 Standards-Version: 3.9.8
 Homepage: https://github.com/GLolol/PyLink/
 X-Python3-Version: >= 3.4
-Vcs-Browser: https://github.com/GLolol/PyLink/tree/packaging/debian/sid
+Vcs-Browser: https://github.com/GLolol/PyLink/tree/packaging/ubuntu/ppa
 
 Package: pylink
 Architecture: all
