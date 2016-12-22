@@ -2,3 +2,6 @@
 
 *.png binary
 *.jpg binary
+
+# See http://manpages.ubuntu.com/manpages/xenial/man1/dpkg-mergechangelogs.1.html
+debian/changelog merge=dpkg-mergechangelogs
