@@ -1,3 +1,10 @@
+pylink (1.0.4-0utopia1ppa1) xenial; urgency=medium
+
+  * PPA Build.
+  * debian/control: update Vcs-Browser to point to Ubuntu branch.
+
+ -- James Lu <bitflip3@gmail.com>  Wed, 21 Dec 2016 18:39:12 -0800
+
 pylink (1.0.4-0utopia1) unstable; urgency=medium
 
   * PyLink 1.0.4: the "Bonfire" release.
