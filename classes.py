@@ -566,7 +566,7 @@ class Irc():
             log.debug('(%s) Using self.umodes for this query: %s', self.name, self.umodes)
 
             if target not in self.users:
-                log.warning('(%s) Possible desync! Mode target %s is not in the users index.', self.name, target)
+                log.debug('(%s) Possible desync! Mode target %s is not in the users index.', self.name, target)
                 return []  # Return an empty mode list
 
             supported_modes = self.umodes
@@ -1018,7 +1018,7 @@ class Irc():
                 hosts.add(self.getHostmask(target, ip=True))
 
             if realhost:
-                hosts.add(self.getHostmask(target, ip=True))
+                hosts.add(self.getHostmask(target, realhost=True))
         else:  # We were given a host, use that.
             hosts = [target]
 
